@@ -1,5 +1,6 @@
 pipeline {
     agent any
+
     stages {
         stage('Dependencies'){
             steps{
@@ -7,12 +8,12 @@ pipeline {
                 sh "cd jk"
                 sh "docker build -f devopsDependencies.dockerfile --rm --name jenkins-dependencies"
             }
-             post{
+            post{
                 success{
-                    echo -e "\033[0;32mBuilt successfully!\033[0m"
+                    sh 'echo "Built successfully!"' 
                 }
                 failure{
-                    sh 'echo "\033[0;31mBuild failed!\033[0m"'
+                    sh 'echo "Build failed!'
                 }
             }
         }
