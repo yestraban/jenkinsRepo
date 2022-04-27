@@ -5,6 +5,7 @@ pipeline {
         stage('Dependencies'){
             steps{
                 echo "Starting dependencies build"
+                git https://github.com/yestraban/jenkinsRepo.git
                 dir('/var/jenkins_home/workspace/Pipeline_devops/jenkinsRepo/jk'){
                     sh "docker build -f devopsDependencies.dockerfile --rm -t jenkins-dependencies ."
                 }
