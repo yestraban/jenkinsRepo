@@ -6,7 +6,7 @@ pipeline {
             steps{
                 echo "Starting dependencies build"
                 sh "cd jk"
-                sh "docker build -f devopsDependencies.dockerfile --rm -t jenkins-dependencies"
+                sh "docker build -f devopsDependencies.dockerfile --rm -t jenkins-dependencies ."
             }
             post{
                 success{
