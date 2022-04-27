@@ -6,14 +6,14 @@ pipeline {
             steps{
                 echo "Starting dependencies build"
                 sh "cd jk"
-                sh "docker build -f devopsDependencies.dockerfile --rm --name jenkins-dependencies"
+                sh "docker build -f devopsDependencies.dockerfile --rm -t jenkins-dependencies"
             }
             post{
                 success{
                     sh 'echo "Built successfully!"' 
                 }
                 failure{
-                    sh 'echo "Build failed!'
+                    sh 'echo "Build failed!"'
                 }
             }
         }
