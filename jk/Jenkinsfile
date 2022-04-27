@@ -5,7 +5,7 @@ pipeline {
         stage('Dependencies'){
             steps{
                 echo "Starting dependencies build"
-                dir('/var/jenkins_home/workspace/LAB07/Pipeline_devops/jenkinsRepo/jk'){
+                dir('/var/jenkins_home/workspace/Pipeline_devops/jenkinsRepo/jk'){
                     sh "docker build -f devopsDependencies.dockerfile --rm -t jenkins-dependencies ."
                 }
             }
