@@ -6,9 +6,10 @@ pipeline {
             steps{
                 echo "Starting dependencies build"
                 git url: 'https://github.com/yestraban/jenkinsRepo.git'
-                dir('/var/jenkins_home/workspace/Pipeline_devops/jenkinsRepo/jk'){
+                //dir('/var/jenkins_home/workspace/Pipeline_devops/jenkinsRepo/jk'){
+                sh "cd jk"
                     sh "docker build -f devopsDependencies.dockerfile --rm -t jenkins-dependencies ."
-                }
+                //}
             }
             post{
                 success{
