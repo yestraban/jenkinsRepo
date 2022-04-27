@@ -3,7 +3,17 @@ pipeline {
     stages {
         stage('Dependencies'){
             steps{
-                echo "abd"
+                echo "Starting dependencies build"
+                sh "cd jk"
+                sh "docker build -f devopsDependencies.dockerfile --rm --name jenkins-dependencies"
+            }
+             post{
+                success{
+                    echo -e "\033[0;32mBuilt successfully!\033[0m"
+                }
+                failure{
+                    sh 'echo "\033[0;31mBuild failed!\033[0m"'
+                }
             }
         }
     }
