@@ -6,7 +6,7 @@ RUN apt install openjdk-17-jdk -y
 RUN apt install bash -y
 RUN wget https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz
 RUN tar xzvf apache-maven-3.8.5-bin.tar.gz
-sudo mv apache-maven-3.8.5 /usr/share/maven
+RUN mv apache-maven-3.8.5 /usr/share/maven
 RUN echo 'export PATH="$PATH:/usr/share/maven"' >> ~/.bashrc
 RUN echo 'export PATH="$PATH:/usr/share/maven/bin"' >> ~/.bashrc
 RUN source ~/.bashrc
