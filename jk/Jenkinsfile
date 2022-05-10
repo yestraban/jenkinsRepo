@@ -6,10 +6,22 @@ pipeline {
             steps{
                 echo "Starting dependencies build"
                 git url: 'https://github.com/yestraban/jenkinsRepo.git'
-                //dir('/var/jenkins_home/workspace/Pipeline_devops/jenkinsRepo/jk'){
-                sh "cd jk"
-                    sh "docker build -f devopsDependencies.dockerfile --rm -t jenkins-dependencies ."
-                //}
+                sh "docker build -f devopsDependencies.dockerfile --rm -t jenkins-dependencies ."
+            }
+            post{
+                success{
+                    sh 'echo "Dependency build successfull!"' 
+                }
+                failure{
+                    sh 'echo "Dependency build failed!"'
+                }
+            }
+        }
+    stage('Dependencies'){
+            steps{
+                echo "building app"
+                //git url: 'https://github.com/yestraban/jenkinsRepo.git'
+                sh "docker build -f devopsProjectBuild.dockerfile --rm -t jenkins-build ."
             }
             post{
                 success{
@@ -17,6 +29,22 @@ pipeline {
                 }
                 failure{
                     sh 'echo "Build failed!"'
+                }
+            }
+        }
+    }
+    stage('Tests'){
+            steps{
+                echo "building app"
+                //git url: 'https://github.com/yestraban/jenkinsRepo.git'
+                sh "docker build -f devopsProjectTest.dockerfile --rm -t jenkins-tests ."
+            }
+            post{
+                success{
+                    sh 'echo "Tests passed successfully!"' 
+                }
+                failure{
+                    sh 'echo "Tests failed!"'
                 }
             }
         }
