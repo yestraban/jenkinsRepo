@@ -32,8 +32,7 @@ pipeline {
                 }
             }
         }
-    }
-    stage('Tests'){
+              stage('Tests'){
             steps{
                 echo "building app"
                 //git url: 'https://github.com/yestraban/jenkinsRepo.git'
