@@ -1,3 +1,3 @@
 FROM jenkins-dependencies:latest
 WORKDIR /jhipster-sample-app/
-RUN mvn clean package -DSkipTests
+RUN ./mvnw -Pprod clean verify
