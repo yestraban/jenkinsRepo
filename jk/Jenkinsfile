@@ -17,7 +17,7 @@ pipeline {
                 }
             }
         }
-        stage('Dependencies'){
+        stage('Build'){
             steps{
                 echo "building app"
                 //git url: 'https://github.com/yestraban/jenkinsRepo.git'
