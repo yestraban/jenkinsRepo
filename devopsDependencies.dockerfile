@@ -5,6 +5,6 @@ RUN apt update && apt upgrade -y
 RUN apt install openjdk-17-jdk -y
 RUN apt install bash -y
 RUN apt install maven -y
-run maven --v
+run mvn --v
 WORKDIR /jhipster-sample-app/
 RUN npm install
