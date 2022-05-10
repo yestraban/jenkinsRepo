@@ -9,7 +9,6 @@ RUN tar xzvf apache-maven-3.8.5-bin.tar.gz
 RUN mv apache-maven-3.8.5 /usr/share/maven
 RUN echo 'export PATH="$PATH:/usr/share/maven"' >> ~/.bashrc
 RUN echo 'export PATH="$PATH:/usr/share/maven/bin"' >> ~/.bashrc
-RUN source ~/.bashrc
-run mvn -v
+RUN mvn -v
 WORKDIR /jhipster-sample-app/
 RUN npm install
