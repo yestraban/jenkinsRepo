@@ -1,10 +1,10 @@
-FROM node:17-alpine
-RUN apk add git
+FROM node:17-bullseye
+RUN apt install git
 RUN git clone https://github.com/jhipster/jhipster-sample-app.git
-RUN apk add openjdk17
-RUN apk add bash
-RUN wget https://dlcdn.apache.org/maven/maven-3/3.8.5/binaries/apache-maven-3.8.5-bin.tar.gz
-RUN tar xzvf apache-maven-3.8.5-bin.tar.gz
-RUN export PATH=/apache-maven-3.8.5/bin:$PATH
+RUN apt update && apt upgrade -y
+RUN apt install openjdk-17-jdk -y
+RUN apt install bash -y
+RUN apt install maven -y
+run maven --v
 WORKDIR /jhipster-sample-app/
 RUN npm install
