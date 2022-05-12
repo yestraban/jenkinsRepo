@@ -36,7 +36,7 @@ pipeline {
             steps{
                 echo "building app"
                 //git url: 'https://github.com/yestraban/jenkinsRepo.git'
-                sh "docker build -f devopsProjectTest.dockerfile --rm -t jenkins-tests ."
+                sh "docker build -f devopsProjectTests.dockerfile --rm -t jenkins-tests ."
             }
             post{
                 success{
