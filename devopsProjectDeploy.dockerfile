@@ -7,5 +7,5 @@ RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ bullseye-pgdg main
 > /etc/apt/sources.list.d/postgresql.list'
 RUN apt update
 RUN apt upgrade -y
-RUN apt install postgresql-13
+RUN apt install postgresql-13 -y
 RUN java -jar target/*.jar
