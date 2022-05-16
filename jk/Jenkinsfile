@@ -47,5 +47,20 @@ pipeline {
                 }
             }
         }
+        stage('Deploy'){
+            steps{
+                echo "deploying app"
+                //git url: 'https://github.com/yestraban/jenkinsRepo.git'
+                sh "docker build -f devopsProjectDeploy.dockerfile --rm -t jenkins-deploy ."
+            }
+            post{
+                success{
+                    sh 'echo "deployed successfully!"' 
+                }
+                failure{
+                    sh 'echo "Deploy failed!"'
+                }
+            }
+        }
     }
 }
