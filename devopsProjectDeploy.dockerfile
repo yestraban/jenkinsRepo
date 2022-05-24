@@ -10,15 +10,16 @@ RUN apt upgrade -y
 RUN apt install systemctl
 RUN apt install postgresql-13 -y
 RUN systemctl enable postgresql
-RUN systemctl start postgresql
-RUN service postgresql start
 RUN mv -f ./pg_hba.conf /etc/postgresql/13/main/
-RUN systemctl restart postgresql
-RUN service postgresql restart
-RUN ps -ef | grep postgres
-RUN /etc/init.d/postgresql restart
-RUN ps -ef | grep postgres
-RUN ls /var/log/postgresql/
+#RUN systemctl start postgresql
+#RUN service postgresql start
+#RUN ps -ef | grep postgres
+#RUN /etc/init.d/postgresql restart
+#RUN ps -ef | grep postgres
+#RUN ls /var/log/postgresql/
+RUN pg_ctlcluster 13 main start
+RUN /usr/lib/postgresql/13/bin/postgres "-D" "/var/lib/postgresql/13/main" "-c" "config_file=/etc/postgresql/13/main/postgresql.conf"
+RUN systemctl status postgresql@13-main.service
 RUN cat /var/log/postgresql/postgresql-13-main.log
 RUN su - postgres
 RUN psql
