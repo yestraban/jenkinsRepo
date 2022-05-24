@@ -11,6 +11,7 @@ RUN apt install systemctl
 RUN apt install postgresql-13 -y
 RUN systemctl enable postgresql
 RUN mv -f ./pg_hba.conf /etc/postgresql/13/main/
+RUN apt install netstat -y
 RUN netstat -ap | grep :5432
 RUN systemctl start postgresql
 RUN service postgresql start
