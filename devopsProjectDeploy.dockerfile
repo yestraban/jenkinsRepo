@@ -18,7 +18,7 @@ RUN service postgresql restart
 RUN ps -ef | grep postgres
 RUN /etc/init.d/postgresql restart
 RUN ps -ef | grep postgres
-RUN ls var/log/postgresql/
+RUN ls /var/log/postgresql/
 RUN cat /var/log/postgresql/postgresql-13-main.log
 RUN su - postgres
 RUN psql
