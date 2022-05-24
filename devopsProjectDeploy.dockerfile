@@ -19,7 +19,7 @@ RUN ps -ef | grep postgres
 RUN su - postgres
 RUN /etc/init.d/postgresql restart
 RUN ps -ef | grep postgres
-RUN cat /var/log/postgresql/postgresql-9.6-main.log
+RUN cat /var/log/postgresql/postgresql-13-main.log
 RUN psql
 RUN CREATE ROLE jhipsterSampleApplication WITH LOGIN SUPERUSER PASSWORD 'test';
 RUN CREATE DATABASE jhipster
