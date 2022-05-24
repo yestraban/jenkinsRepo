@@ -15,7 +15,6 @@ RUN service postgresql start
 RUN mv -f ./pg_hba.conf /etc/postgresql/13/main/
 RUN systemctl restart postgresql
 RUN service postgresql restart
-RUN systemctl status postgresql
 RUN ps -ef | grep postgres
 RUN su - postgres
 RUN /etc/init.d/postgresql restart
