@@ -16,7 +16,7 @@ RUN mv -f ./pg_hba.conf /etc/postgresql/13/main/
 RUN systemctl restart postgresql
 RUN service postgresql restart
 RUN su - postgres
-RUN createuser --username jhipsterSampleApplication --superuser 
+
 RUN psql
 RUN CREATE ROLE jhipsterSampleApplication WITH LOGIN SUPERUSER PASSWORD 'test';
 RUN CREATE DATABASE jhipster
