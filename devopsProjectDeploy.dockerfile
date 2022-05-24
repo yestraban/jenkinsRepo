@@ -11,4 +11,12 @@ RUN apt install systemctl
 RUN apt install postgresql-13 -y
 RUN systemctl enable postgresql
 RUN systemctl start postgresql
+RUN mv -f ./pg_hba.conf /etc/postgresql/13/main/
+RUN service postgresql restart
+RUN su - postgres
+RUN psql
+RUN CREATE ROLE jhipsterSampleApplication WITH LOGIN SUPERUSER PASSWORD 'test';
+RUN CREATE DATABASE jhipster
+RUN \q
+RUN exit
 RUN java -jar target/*.jar
