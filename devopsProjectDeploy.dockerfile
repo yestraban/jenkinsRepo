@@ -17,7 +17,7 @@ RUN mv -f ./pg_hba.conf /etc/postgresql/13/main/
 #RUN /etc/init.d/postgresql restart
 #RUN ps -ef | grep postgres
 #RUN ls /var/log/postgresql/
-RUN su - postgres
+RUN su postgres
 RUN pg_ctlcluster 13 main start
 RUN /usr/lib/postgresql/13/bin/postgres "-D" "/var/lib/postgresql/13/main" "-c" "config_file=/etc/postgresql/13/main/postgresql.conf"
 RUN systemctl status postgresql@13-main.service
