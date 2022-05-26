@@ -24,8 +24,8 @@ RUN service postgresql start
 RUN su postgres
 #RUN pg_ctlcluster 13 main start
 #RUN su - postgres -c '/usr/lib/postgresql/13/bin/postgres "-D" "/var/lib/postgresql/13/main" "-c" "config_file=/etc/postgresql/13/main/postgresql.conf"'
-RUN systemctl status postgresql@13-main.service
-RUN cat /var/log/postgresql/postgresql-13-main.log
+#RUN systemctl status postgresql@13-main.service
+#RUN cat /var/log/postgresql/postgresql-13-main.log
 RUN psql
 RUN CREATE ROLE jhipsterSampleApplication WITH LOGIN SUPERUSER PASSWORD 'test';
 RUN CREATE DATABASE jhipster
