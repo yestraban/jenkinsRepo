@@ -1,4 +1,5 @@
 from jenkins-build:latest
+EXPOSE 8079
 RUN apt install curl ca-certificates gnupg
 RUN curl https://www.postgresql.org/media/keys/ACCC4CF8.asc \
 | gpg --dearmor \
@@ -11,8 +12,8 @@ RUN apt install systemctl
 RUN apt install postgresql-13 -y
 RUN systemctl enable postgresql
 RUN mv -f ./pg_hba.conf /etc/postgresql/13/main/
-RUN apt install netstat -y
-RUN netstat -ap | grep :5432
+#RUN apt install netstat -y
+#RUN netstat -ap | grep :5432
 RUN systemctl start postgresql
 RUN service postgresql start
 #RUN ps -ef | grep postgres
